@@ -10,7 +10,7 @@ if(!file.exists('exdata_data_household_power_consumption.zip')){
 
 unzip('exdata_data_household_power_consumption.zip')
 ## Read and transform data
-consumptiondata <- read.table('household_power_consumption.txt', header = TRUE, sep = ";")
+consumptiondata <- read.table('household_power_consumption.txt', header = TRUE, sep = ";", stringsAsFactors = FALSE)
 consumptiondata$Date1 <- as.Date(consumptiondata$Date, "%d/%m/%Y")
 
 plotdata <- filter(consumptiondata, Date1 >= '2007-02-01' & Date1 <= '2007-02-02')
